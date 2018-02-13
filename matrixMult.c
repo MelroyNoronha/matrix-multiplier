@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <conio.h>
 #include <math.h>
+
 //Global vars
 int matrix1[25][25], matrix2[25][25], result[25][25];
-int r1, c1, r2, c2, i, j, enteredValue; //throughout the program i and j are variables reserved for use in for loops
+int r1, c1, r2, c2, i, j, k, enteredValue; //throughout the program i and j are variables reserved for use in for loops
 
 int initSetup()
 {
@@ -40,7 +41,7 @@ getValues()
 		for(j = 1; j <= c1; j++)
 		{
 			printf("Element no.%d%d: ", i, j);
-			scanf("%f",&enteredValue);
+			scanf("%d",&enteredValue);
 			matrix1[i][j] += enteredValue;
 		}
 	}
@@ -51,9 +52,35 @@ getValues()
 		for(j = 1; j <= c2; j++)
 		{
 			printf("Element no.%d%d: ", i, j);
-			scanf("%f",&enteredValue);
+			scanf("%d",&enteredValue);
 			matrix2[i][j] += enteredValue;
 		}
+	}
+}
+
+multiplyMatrices()
+{	
+	for(i = 1; i <= r1; i++)
+	{
+		for(j = 1; j <= r2; j++)
+		{
+			for(k = 1; k <= c2; k++)
+			{
+				result[i][j] =  matrix1[i][j] * matrix2[j][k];
+			}
+		}
+	}
+}
+
+printResult()
+{
+	for(i = 0; i < r1; i++)
+	{
+		for(j = 0; j < c2; j++)
+		{
+			printf("%d\t", result[i][j]);
+		}
+		printf("\n");
 	}
 }
 
@@ -67,6 +94,10 @@ int main()
 	};
 
 	getValues();
+
+	multiplyMatrices();
+
+	printResult();
 
 	return 0;
 }

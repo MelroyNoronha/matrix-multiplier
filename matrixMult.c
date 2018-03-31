@@ -59,24 +59,24 @@ getValues()
 }
 
 multiplyMatrices()
-{	
-	for(i = 1; i <= r1; i++)
-	{
-		for(j = 1; j <= r2; j++)
-		{
-			for(k = 1; k <= c2; k++)
-			{
-				result[i][j] =  matrix1[i][j] * matrix2[j][k];
-			}
-		}
-	}
+{
+    int sum=0;
+    for(i=1;i<=r1;i++){
+        for(j=1;j<=c2;j++){
+            for(k=1;k<=r2;k++){
+                sum+=matrix1[i][k]*matrix2[k][j];
+            }
+            result[i][j]=sum;
+            sum=0;
+        }
+    }
 }
 
 printResult()
 {
-	for(i = 0; i < r1; i++)
+	for(i = 1; i <= c1; i++)
 	{
-		for(j = 0; j < c2; j++)
+		for(j = 1; j <= c2; j++)
 		{
 			printf("%d\t", result[i][j]);
 		}

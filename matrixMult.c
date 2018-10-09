@@ -4,7 +4,7 @@
 
 //Global vars
 int matrix1[25][25], matrix2[25][25], result[25][25];
-int r1, c1, r2, c2, i, j, k, enteredValue; //throughout the program i and j are variables reserved for use in for loops
+int r1, c1, r2, c2, i, j, k; //throughout the program i and j are variables reserved for use in for loops
 
 int initSetup()
 {
@@ -35,25 +35,25 @@ int checkForErr()
 
 getValues()
 {
-	printf("\nEnter values in the first matrix(%dx%d)\n", r1, c1);
+	printf("\nEnter elements a[i][j] of the first matrix(%dx%d)\n", r1, c1);
 	for(i = 1; i <= r1; i++)
 	{
 		for(j = 1; j <= c1; j++)
 		{
-			printf("Element no.%d%d: ", i, j);
-			scanf("%d",&enteredValue);
-			matrix1[i][j] += enteredValue;
+			// taking a[i][j] as general element of Ist matrix
+			printf("Element a[%d][%d]= ", i, j);
+			scanf("%d",&matrix1[i][j]);
 		}
 	}
 
-	printf("\nEnter values in the second matrix(%dx%d)\n", r2, c2);
+	printf("\nEnter elements b[i][j] of the second matrix(%dx%d)\n", r2, c2);
 	for(i = 1; i <= r2; i++)
 	{
 		for(j = 1; j <= c2; j++)
 		{
-			printf("Element no.%d%d: ", i, j);
-			scanf("%d",&enteredValue);
-			matrix2[i][j] += enteredValue;
+			// taking b[i][j] as general element of IInd matrix
+			printf("Element b[%d][%d]= ", i, j);
+			scanf("%d",&matrix2[i][j]);
 		}
 	}
 }

@@ -7,7 +7,7 @@ int matrix1[25][25], matrix2[25][25], result[25][25];
 int r1, c1, r2, c2, i, j, k; //throughout the program i and j are variables reserved for use in for loops
 
 int initSetup()
-{
+{	//this is the initial set up asking the values from user
 	printf("Enter the no. of rows in the first matrix and press the return key then proceed to enter the no. of coloumns \n");
 	scanf("%d", &r1);
 	printf("x\n");
@@ -20,11 +20,12 @@ int initSetup()
 }
 
 int handleErr()
-{
+{	//When matrices cannot be multiplied
 	printf("Error! the matrices cannot be multiplied\n\nEnter new values\n");
 	initSetup();
 }
 
+//error checking
 int checkForErr()
 {
 	if (c1 != r2)
@@ -33,6 +34,7 @@ int checkForErr()
 	}
 }
 
+//Get values inside the matrix from user
 getValues()
 {
 	printf("\nEnter elements a[i][j] of the first matrix(%dx%d)\n", r1, c1);
@@ -58,6 +60,7 @@ getValues()
 	}
 }
 
+//Heres where the real magic happens.
 multiplyMatrices()
 {
     int sum=0;
@@ -72,6 +75,7 @@ multiplyMatrices()
     }
 }
 
+//Print Result
 printResult()
 {
 	for(i = 1; i <= c1; i++)
@@ -84,6 +88,8 @@ printResult()
 	}
 }
 
+
+//Main program that binds everything
 int main()
 {
 	initSetup();
